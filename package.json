@@ -1,0 +1,26 @@
+{
+  "name": "compute-react19-readablestream-repro",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@fastly/cli": "^10.18.0",
+    "@fastly/js-compute": "^3.30.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.2",
+    "@babel/preset-react": "^7.22.15",
+    "babel-loader": "^9.1.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-server-dom-webpack": "^19.0.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "scripts": {
+    "clean": "rm -rf bin build pkg",
+    "prebuild": "webpack",
+    "build": "js-compute-runtime --debug-build --enable-experimental-top-level-await ./build/main.js ./bin/main.wasm",
+    "start": "fastly compute serve --verbose",
+    "deploy": "fastly compute publish"
+  }
+}

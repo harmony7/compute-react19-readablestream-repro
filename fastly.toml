@@ -1,0 +1,27 @@
+# This file describes a Fastly Compute package. To learn more visit:
+# https://developer.fastly.com/reference/fastly-toml/
+
+authors = ["komuro@fastly.com"]
+description = ""
+language = "javascript"
+manifest_version = 3
+name = "react19-compute-js-readablestream-repro"
+service_id = "rs89AwhPyC5Xkzmpw5nGG0"
+
+[local_server]
+
+  [local_server.kv_stores]
+
+    [[local_server.kv_stores.my-app-data]]
+      data = "dummy"
+      key = "dummy"
+
+[setup]
+
+  [setup.kv_stores]
+
+    [setup.kv_stores.my-app-data]
+      description = "KV Store for App Data"
+
+[scripts]
+  build = "npm run build"
