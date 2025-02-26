@@ -5,7 +5,8 @@
 The purpose of this GitHub repo is to provide a repro for a `MOZ_CRASH` error that occurs when attempting to stream out
 of a `ReadableStream`.
 
-NOTE: this error only occurs in `@fastly/js-compute@3.28.0` and newer.
+> [!IMPORTANT]
+> This was a bug that existed starting `@fastly/js-compute@3.28.0`, and has since been [fixed in `@fastly/js-compute@3.32.2`](https://github.com/fastly/js-compute-runtime/releases/tag/v3.32.2)
 
 The code in this repo has been deployed using @fastly/js-compute@3.30.1 to the Fastly Service
 at https://rsc-demo-compute.edgecompute.app.
@@ -130,4 +131,11 @@ may sometimes crash while rendering a React Server Component that is `async`:
 * On both platforms, if the first `await` is for a `Promise` that resolves after a short `setTimeout` delay, then
   there is no crash. 
 * On both platforms, this only happens on `@fastly/js-compute` 3.28.0 or newer.
+* On both platforms, this has been fixed in `@fastly/js-compute` 3.32.2 or newer.
 
+## Resolution
+
+This was discovered to be a [bug in the JavaScript SDK](https://github.com/fastly/js-compute-runtime/pull/1129), and
+has been fixed by the team.
+
+The [fix has been released in `@fastly/js-compute` 3.32.2](https://github.com/fastly/js-compute-runtime/releases/tag/v3.32.2)
